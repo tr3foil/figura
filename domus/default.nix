@@ -28,6 +28,7 @@ config = {
     wrappersEval.config.build.toplevel
     pkgs.flow-control
     pkgs.nixd
+    pkgs.gnupg
   ] ++ lib.optionals config.head.graphical [
     (pkgs.ungoogled-chromium.override { enableWideVine = true; })
     pkgs.libreoffice

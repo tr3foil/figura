@@ -41,16 +41,6 @@ programs = {
   # Make bash work with HM
   bash.enable = true;
 
-  gpg = {
-    enable = true;
-    mutableKeys = true;
-    mutableTrust = true;
-    settings = {
-      keyid-format = "none";
-      with-subkey-fingerprint = true;
-    };
-  };
-
   git = {
     enable = true;
     signing = {
@@ -88,16 +78,6 @@ programs = {
 
 # Home Manager managed services
 services = {
-  gpg-agent = {
-    enable = true;
-    enableBashIntegration = true;
-    enableScDaemon = true;
-    enableSshSupport = true;
-    sshKeys = [ "3C305675F93CC000802C4DE9F6DDF464ACDD3DE3" ];
-    grabKeyboardAndMouse = true;
-    pinentry.package = pkgs.pinentry-qt;
-  };
-
   # Connect to phone with kdeconnect app
   kdeconnect = {
     enable = true;
