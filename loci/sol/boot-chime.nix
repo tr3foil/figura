@@ -7,7 +7,7 @@ systemd.services.boot-chime = {
 
   environment = {
     RIFFS = pkgs.fetchFromGitHub {
-      owner = "pyrotelekinetic";
+      owner = "tr3foil";
       repo = "seinfeld-riffs";
       rev = "40e0e69bbb2fbaae5829873fea7bb2d8f3bb4531";
       hash = "sha256-7PxTcy/jvRoIT+8eyG2oMaYI2Unz+P06laWKiJqPUnU=";

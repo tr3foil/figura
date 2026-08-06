@@ -256,13 +256,13 @@
       "locked": {
         "lastModified": 1697774123,
         "narHash": "sha256-aay0ScvkqIDIIFiL1ZtmCXjy2aiuhN6wWQ1EDb6o4qc=",
-        "owner": "pyrotelekinetic",
+        "owner": "tr3foil",
         "repo": "pinputs",
         "rev": "93611cf89d0966b7689b6300d280dc0022785c53",
         "type": "github"
       },
       "original": {
-        "owner": "pyrotelekinetic",
+        "owner": "tr3foil",
         "ref": "main",
         "repo": "pinputs",
         "type": "github"
@@ -298,13 +298,13 @@
       "locked": {
         "lastModified": 1708288899,
         "narHash": "sha256-Dzz8Mc0RuPKEmnFz+Z2xLQtu8MqIRHF/kyDNxrxFWTM=",
-        "owner": "pyrotelekinetic",
+        "owner": "tr3foil",
         "repo": "pyroscheme",
         "rev": "49ed6ece84641396f51d31d47bcf1f19505d478f",
         "type": "github"
       },
       "original": {
-        "owner": "pyrotelekinetic",
+        "owner": "tr3foil",
         "ref": "main",
         "repo": "pyroscheme",
         "type": "github"
@@ -338,13 +338,13 @@
       "locked": {
         "lastModified": 1767058241,
         "narHash": "sha256-BnKwWkuoFJEfDconskLJUYPXK4eA/4gNn/P7nqTRgdU=",
-        "owner": "pyrotelekinetic",
+        "owner": "tr3foil",
         "repo": "pyrotelekinetic.github.io",
         "rev": "5894a04941e81ad0594c22000c75a47d415fd6f7",
         "type": "github"
       },
       "original": {
-        "owner": "pyrotelekinetic",
+        "owner": "tr3foil",
         "ref": "main",
         "repo": "pyrotelekinetic.github.io",
         "type": "github"

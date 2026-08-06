@@ -60,7 +60,7 @@ nix = {
       };
       to = {
         type = "github";
-        owner = "pyrotelekinetic";
+        owner = "tr3foil";
         repo = "figura";
         ref = "main";
       };
@@ -73,7 +73,7 @@ nix = {
       };
       to = {
         type = "github";
-        owner = "pyrotelekinetic";
+        owner = "tr3foil";
         repo = "templates";
         ref = "main";
       };

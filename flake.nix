@@ -19,11 +19,11 @@ inputs = {
   nixos-hardware.url = "github:NixOS/nixos-hardware?ref=master";
   nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
   pinputs = {
-    url = "github:pyrotelekinetic/pinputs?ref=main";
+    url = "github:tr3foil/pinputs?ref=main";
     inputs.nixpkgs.follows = "nixpkgs";
   };
-  pyroscheme.url = "github:pyrotelekinetic/pyroscheme?ref=main";
-  pyrosite.url = "github:pyrotelekinetic/pyrotelekinetic.github.io?ref=main";
+  pyroscheme.url = "github:tr3foil/pyroscheme?ref=main";
+  pyrosite.url = "github:tr3foil/pyrotelekinetic.github.io?ref=main";
   sops-nix = {
     url = "github:Mic92/sops-nix?ref=master";
     inputs.nixpkgs.follows = "nixpkgs";
