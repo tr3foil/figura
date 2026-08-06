@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }: with lib; {
 
 imports = [
-  ./mako.nix
   ./games.nix
 ];
 
@@ -12,8 +11,6 @@ options.graphical = {
 
 config = mkMerge [
   ( mkIf config.graphical.enable {
-    services.mako.enable = true;
-
     home.packages = with pkgs; [
       # Fonts
       nerd-fonts.blex-mono
