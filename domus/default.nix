@@ -15,6 +15,7 @@ imports = [
   ./xcompose
   ./ssh
   ./niri
+  ./mako
 ];
 
 options = {
