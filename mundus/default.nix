@@ -33,10 +33,6 @@ mouse.mice = {
 
 sops = {
   defaultSopsFile = ./secrets.yaml;
-  gnupg ={
-    home = configHM.programs.gpg.homedir;
-    sshKeyPaths = [];
-  };
   secrets.testSecret = {};
 };
 
