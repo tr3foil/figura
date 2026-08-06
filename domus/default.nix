@@ -14,6 +14,7 @@ imports = [
   ./readline
   ./xcompose
   ./ssh
+  ./niri
 ];
 
 options = {
