@@ -98,20 +98,4 @@ xdg = {
   };
 };
 
-home.packages = with pkgs; [
-  # Utilities
-  coreutils-full
-  psmisc
-  file
-  libqalculate
-
-  # Blazingly fast
-  fd
-  dust
-
-  # Drip
-  bottom
-  fastfetch
-];
-
 }
