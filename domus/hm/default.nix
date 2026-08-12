@@ -40,40 +40,6 @@ programs = {
 
   # Make bash work with HM
   bash.enable = true;
-
-  git = {
-    enable = true;
-    signing = {
-      key = "${config.home.homeDirectory}/.ssh/id_ed25519";
-      format = "ssh";
-      signByDefault = true;
-    };
-    settings = {
-      user = {
-        name = "Clover Ison";
-        email = "clover@isons.org";
-      };
-      aliases = {
-        l = "log --graph";
-        hash = "log -n 1 --format=%H";
-      };
-      init.defaultBranch = "main";
-      log = {
-        abbrevCommit = true;
-        showSignature = true;
-      };
-      diff.colorMoved = "default";
-      gpg.ssh.allowedSignersFile = "${config.home.homeDirectory}/.ssh/allowed_signers";
-    };
-    ignores = [
-      "*.swp"
-    ];
-  };
-
-  delta = {
-    enable = true;
-    enableGitIntegration = true;
-  };
 };
 
 # Home Manager managed services
