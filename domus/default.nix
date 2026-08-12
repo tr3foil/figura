@@ -16,6 +16,7 @@ imports = [
   ./ssh
   ./niri
   ./mako
+  ./git
 ];
 
 options = {

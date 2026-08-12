@@ -1,0 +1,40 @@
+[aliases]
+	hash = "log -n 1 --format=%H"
+	l = "log --graph"
+
+[commit]
+	gpgSign = true
+
+[diff]
+	colorMoved = "default"
+
+[gpg]
+	format = "ssh"
+
+[gpg "ssh"]
+	allowedSignersFile = "@sshHome@/allowed_signers"
+	program = "@sshKeygen@"
+
+[init]
+	defaultBranch = "main"
+
+	[interactive]
+	diffFilter = "@delta@ --color-only"
+
+[log]
+	abbrevCommit = true
+	showSignature = true
+
+[pager]
+	blame = "@delta@"
+	diff = "@delta@"
+	log = "@delta@"
+	show = "@delta@"
+
+[tag]
+	gpgSign = true
+
+[user]
+	email = "clover@isons.org"
+	name = "Clover Ison"
+	signingKey = "@sshHome@/git_ed25519_sk"
