@@ -143,6 +143,8 @@ environment.systemPackages = with pkgs; [
   sops
   cntr
 
+  wireguard-tools
+
   # Add completion for 'nixos-version --configuration-revision'
   (nix-bash-completions.overrideAttrs (_: prev: {
     patches = prev.patches ++ [ (fetchpatch {
