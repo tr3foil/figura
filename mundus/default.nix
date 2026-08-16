@@ -2,7 +2,6 @@
 
 imports = [
   ./head.nix
-  ./pyrosite.nix
   ./hosts.nix
   ./mouse.nix
   ./lix.nix

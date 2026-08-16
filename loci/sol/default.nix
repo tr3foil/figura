@@ -46,8 +46,6 @@ systemd.user.services.auto-mute-disable = {
   script = ''amixer -D sysdefault:CARD=Generic sset "Auto-Mute Mode" Disabled'';
 };
 
-pyrosite.enable = true;
-
 users.users.cison = {
   packages = with pkgs; [
     element-desktop
