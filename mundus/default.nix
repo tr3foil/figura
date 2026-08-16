@@ -210,9 +210,6 @@ services = {
     openFirewall = true;
     ports = [ 22 26656 ];
   };
-
-  # Enable (pgp) smartcard support
-  pcscd.enable = !config.head.headless;
 };
 
 }
