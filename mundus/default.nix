@@ -1,6 +1,4 @@
-{ pkgs, config, lib, inputs, ... }: let
-  configHM = config.home-manager.users.cison;
-in {
+{ pkgs, config, lib, inputs, ... }: {
 
 imports = [
   ./head.nix
