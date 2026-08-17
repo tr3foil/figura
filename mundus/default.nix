@@ -209,4 +209,6 @@ services = {
   };
 };
 
+boot.zswap.enable = lib.mkDefault true;
+
 }
