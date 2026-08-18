@@ -47,7 +47,11 @@ disko.devices = {
         };
         swap = {
           size = "16G";
-          content.type = "swap";
+          content = {
+            type = "swap";
+            discardPolicy = "both";
+            resumeDevice = true;
+          };
         };
       };
     };
