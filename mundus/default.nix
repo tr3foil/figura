@@ -192,6 +192,11 @@ programs.nano.enable = false;
 programs.yubikey-manager.enable = true;
 
 services = {
+  mullvad-vpn = {
+    gui.enable = config.head.graphical;
+    enableExcludeWrapper = true;
+    enable = true;
+  };
   smartd = {
     enable = true;
     notifications.x11.enable = config.head.graphical;
