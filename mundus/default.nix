@@ -167,7 +167,7 @@ fonts.packages = [ pkgs.unifont ];
 console = {
   packages = [ pkgs.terminus_font ];
   font = "Lat2-Terminus16";
-  colors = with inputs.pyroscheme.lib.colors; [
+  colors = with inputs.phosphor.lib.colors; [
     black
     red
     green

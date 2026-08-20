@@ -22,8 +22,8 @@ inputs = {
     url = "github:tr3foil/pinputs?ref=main";
     inputs.nixpkgs.follows = "nixpkgs";
   };
-  pyroscheme.url = "github:tr3foil/pyroscheme?ref=main";
-  pyrosite.url = "github:tr3foil/pyrotelekinetic.github.io?ref=main";
+  phosphor.url = "github:tr3foil/phosphor?ref=main";
+  cloverpad.url = "github:tr3foil/tr3foil.github.io?ref=main";
   sops-nix = {
     url = "github:Mic92/sops-nix?ref=master";
     inputs.nixpkgs.follows = "nixpkgs";

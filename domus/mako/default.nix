@@ -15,7 +15,7 @@ config = lib.mkIf config.desktop.mako.enable {
       source = pkgs.mako + "/share/dbus-1/servies/fr.emersion.mako.service";
     };
     # TODO: this should be a wrapper (with a test)
-    file.xdg_config."mako/config".text = with inputs.pyroscheme.lib.colors; ''
+    file.xdg_config."mako/config".text = with inputs.phosphor.lib.colors; ''
       anchor=top-right
       background-color=#${black}
       border-color=#${blackBright}
