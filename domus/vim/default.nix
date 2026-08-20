@@ -1,22 +1,7 @@
 { config, pkgs, ... }: {
 
 wrappers.vim = {
-  basePackage = pkgs.vim-full.override {
-    features = "normal";
-    guiSupport = false;
-    luaSupport = false;
-    perlSupport = false;
-    pythonSupport = false;
-    rubySupport = false;
-    nlsSupport = false;
-    tclSupport = false;
-    multibyteSupport = true;
-    cscopeSupport = false;
-    netbeansSupport = false;
-    ximSupport = true;
-    darwinSupport = pkgs.stdenv.isDarwin;
-    ftNixSupport = true;
-  };
+  basePackage = pkgs.vim;
   prependFlags = let
     inherit (config.users.users.cison) home;
     vimDir = ./vimdir;
