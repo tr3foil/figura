@@ -1,6 +1,6 @@
 {
 
-description = "Home Manager and NixOS configurations of pyrotelekinetic";
+description = "nixos configurations of clover";
 
 inputs = {
   disko = {
