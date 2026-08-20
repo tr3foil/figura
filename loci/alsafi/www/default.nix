@@ -24,7 +24,7 @@ services = {
     enable = true;
     recommendedTlsSettings = true;
     virtualHosts."clover.isons.org" = {
-      root = inputs.pyrosite.packages.${pkgs.stdenv.hostPlatform.system}.default + "/site";
+      root = inputs.cloverpad.packages.${pkgs.stdenv.hostPlatform.system}.default + "/site";
       forceSSL = true;
       useACMEHost = "clover.isons.org";
     };

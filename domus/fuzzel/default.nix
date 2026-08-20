@@ -4,7 +4,7 @@ wrappers.fuzzel = lib.mkIf config.head.graphical {
   basePackage = pkgs.fuzzel;
   prependFlags = let
     config = pkgs.runCommand "fuzzel.ini"
-      inputs.pyroscheme.lib.colors
+      inputs.phosphor.lib.colors
       "substituteAll ${./fuzzel.ini} $out";
   in [ "--config" config ];
     postBuild = ''
