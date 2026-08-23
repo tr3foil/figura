@@ -5,8 +5,8 @@ imports = [
 ];
 
 options.graphical = {
-  enable = mkEnableOption (mdDoc "graphical user environment");
-  games = mkEnableOption (mdDoc "games :)");
+  enable = mkEnableOption "graphical user environment";
+  games = mkEnableOption "games :)";
 };
 
 config = {

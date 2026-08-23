@@ -3,8 +3,8 @@
 in {
 
 options.head = with lib; {
-  headless = mkEnableOption (mdDoc "remote only access");
-  graphical = mkEnableOption (mdDoc "graphical user environment");
+  headless = mkEnableOption "remote only access";
+  graphical = mkEnableOption "graphical user environment";
 };
 
 config = lib.mkMerge [
