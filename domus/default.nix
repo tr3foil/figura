@@ -17,6 +17,7 @@ imports = [
   ./niri
   ./mako
   ./git
+  ./desktop-pkgs.nix
 ];
 
 options = {
