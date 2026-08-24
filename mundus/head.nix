@@ -23,6 +23,13 @@ config = lib.mkMerge [
     lib.mkIf cfg.graphical {
       home-manager.users.cison.graphical.enable = true;
 
+      i18n.inputMethod = {
+        enable = true;
+        type = "ibus";
+        ibus.engines = [ pkgs.ibus-engines.uniemoji ];
+        ibus.waylandFrontend = true;
+      };
+
       users.users.cison.packages = [
         pkgs.netflix
         pkgs.adwaita-qt6
