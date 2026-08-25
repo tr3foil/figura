@@ -12,7 +12,7 @@ config = lib.mkIf config.desktop.mako.enable {
     systemd.packages = [ pkgs.mako ];
 
     file.xdg_data."dbus-1/services/fr.emersion.mako.service" = {
-      source = pkgs.mako + "/share/dbus-1/servies/fr.emersion.mako.service";
+      source = pkgs.mako + "/share/dbus-1/services/fr.emersion.mako.service";
     };
     # TODO: this should be a wrapper (with a test)
     file.xdg_config."mako/config".text = with inputs.phosphor.lib.colors; ''
