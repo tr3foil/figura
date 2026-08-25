@@ -31,6 +31,7 @@ config = lib.mkIf config.desktop.mako.enable {
       padding=5
       progress-color=over #${green}
       text-color=#${white}
+      height=600
 
       [mode=dnd]
       invisible=true
