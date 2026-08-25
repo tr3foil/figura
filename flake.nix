@@ -58,13 +58,6 @@ in {
   in
     luna-img.config.system.build.sdImage;
 
-  formatter = allSystems (pkgs:
-    pkgs.writeShellApplication {
-      name = "deadnix";
-      runtimeInputs = [ pkgs.deadnix ];
-      text = "deadnix -e";
-    }
-  );
 
   checks = allSystems (pkgs: {
     deadnix = pkgs.runCommand "deadnix-check" {} ''
