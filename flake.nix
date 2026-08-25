@@ -58,6 +58,15 @@ in {
   in
     luna-img.config.system.build.sdImage;
 
+  devShells = allSystems (pkgs: {
+    default = pkgs.mkShellNoCC {
+      inputsFrom = pkgs.lib.attrValues inputs.self.checks.${pkgs.stdenv.hostPlatform.system};
+      packages = [
+        pkgs.sops
+        pkgs.ssh-to-age
+      ];
+    };
+  });
 
   checks = allSystems (pkgs: {
     deadnix = pkgs.runCommand "deadnix-check" {} ''
