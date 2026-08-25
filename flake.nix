@@ -67,8 +67,12 @@ in {
   );
 
   checks = allSystems (pkgs: {
-    default = pkgs.runCommand "deadnix-check" {} ''
+    deadnix = pkgs.runCommand "deadnix-check" {} ''
       ${pkgs.lib.getExe pkgs.deadnix} --fail ${inputs.self}
+      touch $out
+    '';
+    statix = pkgs.runCommand "statix-check" {} ''
+      ${pkgs.lib.getExe pkgs.statix} check ${inputs.self}
       touch $out
     '';
   });
