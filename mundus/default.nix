@@ -208,6 +208,7 @@ services = {
       PermitRootLogin = "no";
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
+      AcceptEnv = [ "COLORTERM" ];
     };
     openFirewall = true;
     ports = [ 22 26656 ];
