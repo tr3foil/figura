@@ -8,7 +8,10 @@ services = {
     host = "::1";
     port = 8391;
     openFirewall = false;
-    libraries = [ "/srv/calibre/library" ];
+    libraries = [
+      "/srv/calibre/library"
+      "/srv/calibre/alt"
+    ];
     auth = {
       enable = true;
       userDb = "/srv/calibre/users.sqlite";
