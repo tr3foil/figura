@@ -1,4 +1,4 @@
-{ lib, ... }: let
+{ ... }: let
   ips = {
     wan = "184.179.188.130";
     gate = "192.168.1.1";
@@ -9,8 +9,6 @@
     vega = "192.168.1.10";
   };
 in {
-
-networking.hosts = lib.concatMapAttrs (x: y: { ${y} = [ x ]; }) ips;
 
 programs.ssh = {
   extraConfig = with ips; ''
