@@ -5,6 +5,7 @@ imports = [
   ./hardware.nix
   ./disko.nix
   ./tlp.nix
+  ./secure-suspend.nix
 ];
 
 head.graphical = true;
