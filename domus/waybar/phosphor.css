@@ -1,0 +1,26 @@
+@define-color background #@black@;
+@define-color foreground #@white@;
+
+@define-color black #@black@;
+@define-color blackBright #@blackBright@;
+
+@define-color red #@red@;
+@define-color redBright #@redBright@;
+
+@define-color green #@green@;
+@define-color greenBright #@greenBright@;
+
+@define-color yellow #@yellow@;
+@define-color yellowBright #@yellowBright@;
+
+@define-color blue #@blue@;
+@define-color blueBright #@blueBright@;
+
+@define-color magenta #@magenta@;
+@define-color magentaBright #@magentaBright@;
+
+@define-color cyan #@cyan@;
+@define-color cyanBright #@cyanBright@;
+
+@define-color white #@white@;
+@define-color whiteBright #@whiteBright@;

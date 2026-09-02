@@ -1,0 +1,72 @@
+@import "@phosphor@";
+
+* {
+  border: none;
+  font-family: BlexMono Nerd Font Mono, monospace;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+window#waybar {
+  background: @background;
+  font-size: 22px;
+  color: @foreground;
+}
+
+tooltip {
+  background: @background;
+  border: 1px solid @foreground;
+  /*border-radius: 12px;*/
+}
+
+menu {
+  color: @forground;
+  background: @background;
+  border: 1px solid @foreground;
+  border-radius: 8px;
+}
+
+#tray {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#workspaces button {
+  padding: 0;
+  margin: 0;
+  font-size: 28px;
+  background: none;
+  color: @foreground;
+}
+
+#workspaces button.focused {
+  color: @whiteBright;
+}
+
+#pulseaudio-slider {
+  min-height: 100px;
+}
+
+/* Don't show the grabbable thing in the slider */
+#pulseaudio-slider slider {
+  min-height: 0px;
+  min-width: 0px;
+  background: none;
+}
+
+#pulseaudio-slider trough {
+  min-width: 10px;
+  border-radius: 5px;
+  background-color: @blackBright;
+}
+
+#pulseaudio-slider highlight {
+  min-width: 10px;
+  border-radius: 5px;
+  background-color: @foreground;
+}
+
+#clock {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
