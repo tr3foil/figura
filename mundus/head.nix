@@ -47,28 +47,8 @@ config = lib.mkMerge [
       # gtk polkit auth agent
       security.soteria.enable = true;
 
-      systemd.user.services = {
-        waybar.path = let
-          toggle-headphones = pkgs.writeShellApplication {
-            name = "toggle-headphones";
-            runtimeInputs = [ pkgs.ripgrep pkgs.pulseaudio ];
-            text = ''
-              CURRENT=$(pactl list sinks | rg -o "Active Port: [a-z\-]+")
-
-              if [ "$CURRENT" = "Active Port: analog-output-lineout" ]; then
-                pactl set-sink-port alsa_output.pci-0000_0b_00.4.analog-stereo analog-output-headphones
-              elif [ "$CURRENT" = "Active Port: analog-output-headphones" ]; then
-                pactl set-sink-port alsa_output.pci-0000_0b_00.4.analog-stereo analog-output-lineout
-              else echo "wtf"; false
-              fi
-            '';
-          };
-        in [ toggle-headphones pkgs.pwvucontrol pkgs.killall ];
-      };
-
       programs = {
         niri.enable = true;
-        waybar.enable = true;
         dconf = {
           enable = true;
           profiles.user.databases = [ {

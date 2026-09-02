@@ -1,0 +1,126 @@
+{
+  "layer": "top",
+  "position": "left",
+  "width": 32,
+  "spacing": 0,
+
+  "modules-left": [
+    "network",
+    "tray"
+  ],
+  "modules-center": [
+    "niri/workspaces"
+  ],
+  "modules-right": [
+    //"idle_inhibitor",
+    //"privacy",
+    //"bluetooth",
+    "pulseaudio/slider",
+    "pulseaudio",
+    "backlight",
+    "battery",
+    "clock"
+  ],
+  // Modules configuration
+
+  "tray": {
+    "icon-size": 24,
+    "spacing": 8,
+    "show-passive-items": true,
+    "expand": true,
+  },
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "●",
+      "default": "○"
+    },
+  },
+  "bluetooth": {
+  },
+  "network": {
+    "format": "{icon}",
+    "format-icons": {
+      "ethernet": [
+        "󰛳"
+      ],
+      "wifi": [
+        ""
+      ]
+    },
+    "family": "ipv4_6",
+    "tooltip-format": "{ipaddr}\n{bandwidthUpBits} {bandwidthDownBits}"
+    // "on-click": "foot networkctl"
+  },
+  "pulseaudio/slider": {
+    "orientation": "vertical"
+  },
+  "pulseaudio": {
+  "format": "{icon}",
+  "format-bluetooth": "󰥰",
+  "format-bluetooth-muted": "󰥰",
+  "format-muted": "",
+  "format-source": "",
+  "format-source-muted": "",
+  "format-icons": {
+    "headphone": "",
+    "hands-free": "",
+    "headset": "",
+    "phone": "",
+    "portable": "",
+    "default": ["", "", ""]
+  },
+  //"on-click": "/home/cison/toggle-headphones.sh",
+  "on-click": "@pwvucontrol@"
+  },
+  "backlight": {
+    "format": "{icon}",
+    // "format-icons": ["󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩔", "󱩕", "󱩖", "󰛨"],
+    "format-icons": ["󰃛", "󰃜", "󰃝", "󰃞", "󰃟", "󰃠"],
+    "tooltip-format": "{percent}%"
+  },
+  "battery": {
+    "full-at": 80,
+    "format": "{icon}",
+    "format-full": "{icon}",
+    //"format-plugged": "",
+    //"format-charging": "󰂄",
+    "format-icons": {
+      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+      "charging": [ "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", ],
+      "plugged": "󰚥"
+    },
+    "tooltip-format": "{capacity}%\n{timeTo}",
+    "interval": 30,
+    "states": {
+      "critical": 1,
+      "warning": 25
+    }
+  },
+  "clock": {
+    "format": "{:%I\n%M}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    //"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    //"format-alt": "{:%Y-%m-%d}"
+    "calendar": {
+      "mode"          : "month",
+      "mode-mon-col"  : 3,
+      "weeks-pos"     : "none",
+      "on-scroll"     : 1,
+      "format": {
+        "months":     "<span color='#ffead3'><b>{}</b></span>",
+        "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+        "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    }
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  }
+}

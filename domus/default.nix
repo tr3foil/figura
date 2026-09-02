@@ -17,6 +17,7 @@ imports = [
   ./niri
   ./mako
   ./git
+  ./waybar
   ./desktop-pkgs.nix
 ];
 
