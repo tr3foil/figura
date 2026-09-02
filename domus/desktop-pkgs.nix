@@ -4,9 +4,6 @@
 
 users.users.cison.maid = lib.mkIf config.head.graphical {
   packages = [
-    # Fonts
-    pkgs.nerd-fonts.blex-mono
-    pkgs.noto-fonts-color-emoji
 
     # Social
     pkgs.signal-desktop

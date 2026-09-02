@@ -162,7 +162,11 @@ environment.systemPackages = with pkgs; [
   zip unzip p7zip xz gzip bzip2
 ] ++ lib.optional config.services.smartd.enable pkgs.smartmontools;
 
-fonts.packages = [ pkgs.unifont ];
+fonts.packages = [
+  pkgs.nerd-fonts.blex-mono
+  pkgs.noto-fonts-color-emoji
+  pkgs.unifont
+];
 
 console = {
   packages = [ pkgs.terminus_font ];
