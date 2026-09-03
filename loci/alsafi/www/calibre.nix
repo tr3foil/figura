@@ -5,7 +5,7 @@ in {
 services = {
   calibre-server = {
     enable = true;
-    host = "::1";
+    host = "localhost";
     port = 8391;
     openFirewall = false;
     libraries = [
@@ -19,17 +19,14 @@ services = {
     };
   };
 
-  nginx = {
-    clientMaxBodySize = "1G"; # for uploading big books
-    virtualHosts."calibre.clover.isons.org" = {
-      forceSSL = true;
-      useACMEHost = "clover.isons.org";
-      locations."/" = {
-        proxyPass = "http://[::1]:" + toString cfg.port;
-        recommendedProxySettings = true;
-      };
-    };
-  };
+  caddy.virtualHosts."books.clover.isons.org".extraConfig = ''
+    reverse_proxy ${cfg.host}:${toString cfg.port}
+
+    # for uploading big books
+    request_body {
+      max_size 1G
+    }
+  '';
 };
 
 }
