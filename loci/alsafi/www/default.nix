@@ -1,10 +1,11 @@
-{ config, pkgs, inputs, ... }: {
+{ config, ... }: {
 
 imports = [
   ./webdav.nix
   ./calibre.nix
   ./peertube.nix
   ./immich.nix
+  ./cloverpad.nix
 ];
 
 sops.secrets = {
@@ -27,14 +28,6 @@ services = {
         wrap console
       }
     '';
-    virtualHosts."clover.isons.org" = {
-      extraConfig = let
-        cloverpad = inputs.cloverpad.packages.${pkgs.stdenv.hostPlatform.system}.default;
-      in ''
-        root ${cloverpad}/site
-        file_server
-      '';
-    };
     openFirewall = true;
   };
 };
