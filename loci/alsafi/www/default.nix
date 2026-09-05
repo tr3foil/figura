@@ -6,7 +6,7 @@ imports = [
   ./peertube.nix
   ./immich.nix
   ./cloverpad.nix
-  ./auth.nix
+  ./auth
 ];
 
 sops.secrets = {
