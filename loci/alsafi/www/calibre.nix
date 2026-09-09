@@ -1,5 +1,6 @@
 { config, ... }: let
   cfg = config.services.calibre-server;
+  cfgTa = config.services.tinyauth;
 in {
 
 services = {
@@ -20,6 +21,10 @@ services = {
   };
 
   caddy.virtualHosts."books.clover.isons.org".extraConfig = ''
+    forward_auth ${cfgTa.settings.SERVER_ADDRESS}:${toString cfgTa.settings.SERVER_PORT} {
+      uri /api/auth/caddy
+    }
+
     reverse_proxy ${cfg.host}:${toString cfg.port}
 
     # for uploading big books
@@ -27,6 +32,11 @@ services = {
       max_size 1G
     }
   '';
+
+  tinyauth.settings = {
+    APPS_CALIBRE_CONFIG_DOMAIN = "books.clover.isons.org";
+    APPS_CALIBRE_OAUTH_GROUPS = "readers";
+  };
 };
 
 }
