@@ -25,6 +25,8 @@ services = {
       OAUTH_PROVIDERS_POCKETID_SCOPES = "openid email profile groups";
       OAUTH_PROVIDERS_POCKETID_NAME = "Pocket ID";
       OAUTH_AUTOREDIRECT = "pocketid";
+      # use the same background image as pocket-id
+      UI_BACKGROUNDIMAGE = cfgPi.settings.APP_URL + "/api/application-images/background";
     };
   };
 
