@@ -11,6 +11,11 @@ imports = [
 
 sops.secrets = {
   "duckdns.token".sopsFile = ../secrets.yaml;
+  "caddy-mtls_client-ca.crt" = {
+    sopsFile = ../secrets.yaml;
+    owner = config.services.caddy.user;
+    restartUnits = [ "caddy.service" ];
+  };
 };
 
 services = {

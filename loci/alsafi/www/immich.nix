@@ -1,5 +1,6 @@
 { config, ... }: let
   cfg = config.services.immich;
+  cfgTa = config.services.tinyauth;
 in {
 
 services = {
@@ -9,9 +10,24 @@ services = {
     openFirewall = false;
   };
 
-  caddy.virtualHosts."pics.clover.isons.org".extraConfig = ''
-    reverse_proxy ${cfg.host}:${toString cfg.port}
-  '';
+  caddy.virtualHosts = {
+    "pics.clover.isons.org".extraConfig = ''
+      forward_auth ${cfgTa.settings.SERVER_ADDRESS}:${toString cfgTa.settings.SERVER_PORT} {
+        uri /api/auth/caddy
+      }
+      reverse_proxy ${cfg.host}:${toString cfg.port}
+    '';
+
+    # subdomain for immich app with mtls instead of tinyauth middleware
+    "m.pics.clover.isons.org".extraConfig = ''
+      tls {
+        client_auth {
+          trust_pool file ${config.sops.secrets."caddy-mtls_client-ca.crt".path}
+        }
+      }
+      reverse_proxy ${cfg.host}:${toString cfg.port}
+    '';
+  };
 
   tinyauth.settings = {
     OIDC_CLIENTS_IMMICH_NAME = "Immich";
