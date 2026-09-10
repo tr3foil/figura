@@ -32,6 +32,8 @@ services = {
   tinyauth.settings = {
     OIDC_CLIENTS_IMMICH_NAME = "Immich";
     OIDC_CLIENTS_IMMICH_TRUSTEDREDIRECTURIS = "https://pics.clover.isons.org/auth/login,https://pics.clover.isons.org/user-settings,https://pics.clover.isons.org/api/oauth/mobile-redirect,app.immich:///oauth-callback";
+    APPS_IMMICH_CONFIG_DOMAIN = "pics.clover.isons.org";
+    APPS_IMMICH_OAUTH_GROUPS = "photographers";
   };
 };
 
