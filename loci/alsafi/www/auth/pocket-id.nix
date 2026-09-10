@@ -1,4 +1,4 @@
-{ config, ... }: let
+{ config, inputs, ... }: let
   cfg = config.services.pocket-id;
 in {
 
@@ -18,6 +18,8 @@ services = {
       ALLOW_INSECURE_CALLBACK_URLS = false;
       ANALYTICS_DISABLED = true;
       VERSION_CHECK_DISABLED = true;
+      UI_CONFIG_DISABLED = true;
+      ACCENT_COLOR = "#${inputs.phosphor.lib.colors.green}";
     };
     credentials = {
       ENCRYPTION_KEY = config.sops.secrets."pocket-id_encryption.key".path;
