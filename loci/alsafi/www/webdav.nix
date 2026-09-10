@@ -20,6 +20,11 @@ services = {
   };
 
   caddy.virtualHosts."webdav.clover.isons.org".extraConfig = ''
+    tls {
+      client_auth {
+        trust_pool file ${config.sops.secrets."caddy-mtls_client-ca.crt".path}
+      }
+    }
     reverse_proxy ${cfg.settings.address}:${toString cfg.settings.port}
   '';
 };
