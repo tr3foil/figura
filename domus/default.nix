@@ -29,7 +29,7 @@ options = {
 };
 
 config = {
-  users.users.cison.packages = [
+  users.users.cison.maid.packages = [
     wrappersEval.config.build.toplevel
     pkgs.flow-control
     pkgs.nixd
