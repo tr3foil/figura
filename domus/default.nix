@@ -29,30 +29,35 @@ options = {
 };
 
 config = {
-  users.users.cison.maid.packages = [
-    wrappersEval.config.build.toplevel
-    pkgs.flow-control
-    pkgs.nixd
-    pkgs.gnupg
+  users.users.cison.maid = {
+    dconf.settings = lib.mkIf config.head.graphical {
+      "/org/gnome/desktop/interface/color-scheme" = "prefer-dark";
+    };
+    packages = [
+      wrappersEval.config.build.toplevel
+      pkgs.flow-control
+      pkgs.nixd
+      pkgs.gnupg
 
-    # Utilities
-    pkgs.coreutils-full
-    pkgs.psmisc
-    pkgs.file
-    pkgs.libqalculate
+      # Utilities
+      pkgs.coreutils-full
+      pkgs.psmisc
+      pkgs.file
+      pkgs.libqalculate
 
-    # Blazingly fast
-    pkgs.fd
-    pkgs.dust
+      # Blazingly fast
+      pkgs.fd
+      pkgs.dust
 
-    # Drip
-    pkgs.bottom
-    pkgs.fastfetch
-  ] ++ lib.optionals config.head.graphical [
-    (pkgs.ungoogled-chromium.override { enableWideVine = true; })
-    pkgs.libreoffice
-    pkgs.vesktop
-  ];
+      # Drip
+      pkgs.bottom
+      pkgs.fastfetch
+    ] ++ lib.optionals config.head.graphical [
+      (pkgs.ungoogled-chromium.override { enableWideVine = true; })
+      pkgs.libreoffice
+      pkgs.vesktop
+    ];
+  };
 };
 
 }

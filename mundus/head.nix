@@ -49,12 +49,6 @@ config = lib.mkMerge [
 
       programs = {
         niri.enable = true;
-        dconf = {
-          enable = true;
-          profiles.user.databases = [ {
-            settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
-          } ];
-        };
         kdeconnect.enable = true;
         steam = {
           enable = true;
