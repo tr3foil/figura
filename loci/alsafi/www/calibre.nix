@@ -63,6 +63,9 @@ services = {
     APPS_MYCALIBRE_OAUTH_WHITELIST = "clover@isons.org";
     APPS_MYCALIBRE_RESPONSE_BASICAUTH_USERNAME = "clover";
     APPS_MYCALIBRE_RESPONSE_BASICAUTH_PASSWORDFILE = config.sops.secrets."calibre-clover.password".path;
+    # workaround pwa breaking because of cors stuff idk
+    APPS_CALIBRE_PATH_ALLOW = "/manifest.json";
+    APPS_MYCALIBRE_PATH_ALLOW = "/manifest.json";
   };
 };
 
