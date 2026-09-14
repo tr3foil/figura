@@ -3,6 +3,12 @@
   cfgTa = config.services.tinyauth;
 in {
 
+sops.secrets."calibre-clover.password" = {
+  sopsFile = ../secrets.yaml;
+  owner = cfgTa.user;
+  restartUnits = [ "tinyauth.service" ];
+};
+
 services = {
   calibre-server = {
     enable = true;
@@ -20,22 +26,43 @@ services = {
     };
   };
 
-  caddy.virtualHosts."books.clover.isons.org".extraConfig = ''
-    forward_auth ${cfgTa.settings.SERVER_ADDRESS}:${toString cfgTa.settings.SERVER_PORT} {
-      uri /api/auth/caddy
-    }
+  # TODO: deduplicate
+  caddy.virtualHosts = {
+    "books.clover.isons.org".extraConfig = ''
+      forward_auth ${cfgTa.settings.SERVER_ADDRESS}:${toString cfgTa.settings.SERVER_PORT} {
+        uri /api/auth/caddy
+      }
 
-    reverse_proxy ${cfg.host}:${toString cfg.port}
+      reverse_proxy ${cfg.host}:${toString cfg.port}
 
-    # for uploading big books
-    request_body {
-      max_size 1G
-    }
-  '';
+      # for uploading big books
+      request_body {
+        max_size 1G
+      }
+    '';
+    "c.books.clover.isons.org".extraConfig = ''
+      forward_auth ${cfgTa.settings.SERVER_ADDRESS}:${toString cfgTa.settings.SERVER_PORT} {
+        uri /api/auth/caddy
+        copy_headers Authorization
+      }
+
+      reverse_proxy ${cfg.host}:${toString cfg.port}
+
+      # for uploading big books
+      request_body {
+        max_size 1G
+      }
+    '';
+  };
 
   tinyauth.settings = {
     APPS_CALIBRE_CONFIG_DOMAIN = "books.clover.isons.org";
     APPS_CALIBRE_OAUTH_GROUPS = "readers";
+    # subdomain with autologin just for me :3
+    APPS_MYCALIBRE_CONFIG_DOMAIN = "c.books.clover.isons.org";
+    APPS_MYCALIBRE_OAUTH_WHITELIST = "clover@isons.org";
+    APPS_MYCALIBRE_RESPONSE_BASICAUTH_USERNAME = "clover";
+    APPS_MYCALIBRE_RESPONSE_BASICAUTH_PASSWORDFILE = config.sops.secrets."calibre-clover.password".path;
   };
 };
 
