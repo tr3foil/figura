@@ -19,6 +19,7 @@ imports = [
   ./git
   ./waybar
   ./desktop-pkgs.nix
+  ./burp
 ];
 
 options = {
