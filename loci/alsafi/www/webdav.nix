@@ -1,10 +1,11 @@
 { config, ... }: let
   cfg = config.services.webdav;
+  domain = "webdav.${config.www.domain}";
 in {
 
 services = {
   webdav = {
-    enable = true;
+    enable = config.www.enable;
     environmentFile = config.sops.secrets."webdav.env".path;
     settings = {
       address = "localhost";
@@ -19,7 +20,7 @@ services = {
     };
   };
 
-  caddy.virtualHosts."webdav.clover.isons.org".extraConfig = ''
+  caddy.virtualHosts.${domain}.extraConfig = ''
     tls {
       client_auth {
         trust_pool file ${config.sops.secrets."caddy-mtls_client-ca.crt".path}

@@ -1,6 +1,7 @@
 { config, ... }: let
   cfg = config.services.tinyauth;
   cfgPi = config.services.pocket-id;
+  domain = "auth.${config.www.domain}";
 in {
 
 sops.secrets."tinyauth.env" = {
@@ -11,12 +12,12 @@ sops.secrets."tinyauth.env" = {
 
 services = {
   tinyauth = {
-    enable = true;
+    enable = config.www.enable;
     environmentFile = config.sops.secrets."tinyauth.env".path;
     settings = rec {
       SERVER_ADDRESS = "localhost";
       SERVER_PORT = 3962;
-      APPURL = "https://auth.clover.isons.org";
+      APPURL = "https://${domain}";
       DATABASE_PATH = "postgres://tinyauth@/tinyauth?host=/run/postgresql";
       OAUTH_PROVIDERS_POCKETID_AUTHURL = cfgPi.settings.APP_URL + "/authorize";
       OAUTH_PROVIDERS_POCKETID_TOKENURL = cfgPi.settings.APP_URL + "/api/oidc/token";

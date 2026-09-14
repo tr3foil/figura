@@ -1,6 +1,8 @@
-{ pkgs, inputs, ... }: {
+{ config, pkgs, inputs, ... }: let
+  inherit (config.www) domain;
+in {
 
-services.caddy.virtualHosts."clover.isons.org" = {
+services.caddy.virtualHosts.${domain} = {
   extraConfig = let
     cloverpad = inputs.cloverpad.packages.${pkgs.stdenv.hostPlatform.system}.default;
   in ''

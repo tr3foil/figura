@@ -1,5 +1,6 @@
 { config, inputs, ... }: let
   cfg = config.services.pocket-id;
+  domain = "id.${config.www.domain}";
 in {
 
 sops.secrets."pocket-id_encryption.key" = {
@@ -9,11 +10,11 @@ sops.secrets."pocket-id_encryption.key" = {
 
 services = {
   pocket-id = {
-    enable = true;
+    enable = config.www.enable;
     settings = {
       HOST = "localhost";
       PORT = 5059;
-      APP_URL = "https://id.clover.isons.org";
+      APP_URL = "https://${domain}";
       DB_CONNECTION_STRING = "postgres://pocket-id@/pocket-id?host=/run/postgresql";
       ALLOW_INSECURE_CALLBACK_URLS = false;
       ANALYTICS_DISABLED = true;

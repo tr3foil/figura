@@ -1,6 +1,7 @@
 { config, ... }: let
   cfg = config.services.calibre-server;
   cfgTa = config.services.tinyauth;
+  domain = "books.${config.www.domain}";
 in {
 
 sops.secrets."calibre-clover.password" = {
@@ -11,7 +12,7 @@ sops.secrets."calibre-clover.password" = {
 
 services = {
   calibre-server = {
-    enable = true;
+    enable = config.www.enable;
     host = "localhost";
     port = 8391;
     openFirewall = false;
@@ -28,7 +29,7 @@ services = {
 
   # TODO: deduplicate
   caddy.virtualHosts = {
-    "books.clover.isons.org".extraConfig = ''
+    ${domain}.extraConfig = ''
       forward_auth ${cfgTa.settings.SERVER_ADDRESS}:${toString cfgTa.settings.SERVER_PORT} {
         uri /api/auth/caddy
       }
@@ -40,7 +41,7 @@ services = {
         max_size 1G
       }
     '';
-    "c.books.clover.isons.org".extraConfig = ''
+    "c.${domain}".extraConfig = ''
       forward_auth ${cfgTa.settings.SERVER_ADDRESS}:${toString cfgTa.settings.SERVER_PORT} {
         uri /api/auth/caddy
         copy_headers Authorization
@@ -56,10 +57,10 @@ services = {
   };
 
   tinyauth.settings = {
-    APPS_CALIBRE_CONFIG_DOMAIN = "books.clover.isons.org";
+    APPS_CALIBRE_CONFIG_DOMAIN = domain;
     APPS_CALIBRE_OAUTH_GROUPS = "readers";
     # subdomain with autologin just for me :3
-    APPS_MYCALIBRE_CONFIG_DOMAIN = "c.books.clover.isons.org";
+    APPS_MYCALIBRE_CONFIG_DOMAIN = "c.${domain}";
     APPS_MYCALIBRE_OAUTH_WHITELIST = "clover@isons.org";
     APPS_MYCALIBRE_RESPONSE_BASICAUTH_USERNAME = "clover";
     APPS_MYCALIBRE_RESPONSE_BASICAUTH_PASSWORDFILE = config.sops.secrets."calibre-clover.password".path;

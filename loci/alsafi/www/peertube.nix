@@ -1,4 +1,6 @@
-{ config, ... }: {
+{ config, ... }: let
+  domain = "tv.${config.www.domain}";
+in {
 
 sops.secrets."peertube" = {
   sopsFile = ../secrets.yaml;
@@ -21,7 +23,7 @@ services = {
     secrets.secretsFile = config.sops.secrets."peertube".path;
     redis.createLocally = true;
     database.createLocally = true;
-    localDomain = "tv.clover.isons.org";
+    localDomain = domain;
   };
 };
 
