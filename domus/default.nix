@@ -20,6 +20,7 @@ imports = [
   ./waybar
   ./desktop-pkgs.nix
   ./burp
+  ./zap
 ];
 
 options = {
