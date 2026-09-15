@@ -4,11 +4,51 @@
   domain = "pics.${config.www.domain}";
 in {
 
+sops.secrets = {
+  "immich/client.id" = {
+    sopsFile = ../secrets.yaml;
+    owner = cfg.user;
+    restartUnits = [ "immich-server.service" ];
+  };
+  "immich/client.secret" = {
+    sopsFile = ../secrets.yaml;
+    owner = cfg.user;
+    restartUnits = [ "immich-server.service" ];
+  };
+};
+
 services = {
   immich = {
     enable = config.www.enable;
     host = "localhost";
     openFirewall = false;
+    settings = {
+      server = {
+        externalDomain = "https://" + domain;
+        publicUsers = false;
+      };
+      ffmpeg = {
+        acceptedAudioCodecs = [ "aac" "opus" ];
+        acceptedVideoCodecs = [ "av1" "hevc" ];
+        preset = "fast";
+        targetResolution = "original";
+        targetVideoCodec = "hevc";
+      };
+      metadata.faces.import = true;
+      oauth = {
+        enabled = true;
+        allowInsecureRequests = false;
+        autoLaunch = true;
+        autoRegister = false;
+        buttonText = "Login with Tinyauth";
+        clientId._secret = config.sops.secrets."immich/client.id".path;
+        clientSecret._secret = config.sops.secrets."immich/client.secret".path;
+        issuerUrl = cfgTa.settings.APPURL;
+      };
+      passwordLogin.enabled = false;
+      user.deleteDelay = 30;
+    };
+
   };
 
   caddy.virtualHosts = {
