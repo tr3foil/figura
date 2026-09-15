@@ -33,7 +33,7 @@ config = {
 
   www = {
     enable = true;
-    domain = "clover.isons.org";
+    domain = "trefoil.gay";
   };
 
   services = {
