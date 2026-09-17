@@ -60,7 +60,7 @@ services = {
     '';
 
     # subdomain for immich app with mtls instead of tinyauth middleware
-    "m.${domain}".extraConfig = ''
+    "m-${domain}".extraConfig = ''
       tls {
         client_auth {
           trust_pool file ${config.sops.secrets."caddy-mtls_client-ca.crt".path}

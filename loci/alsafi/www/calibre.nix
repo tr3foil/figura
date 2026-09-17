@@ -41,7 +41,7 @@ services = {
         max_size 1G
       }
     '';
-    "c.${domain}".extraConfig = ''
+    "c-${domain}".extraConfig = ''
       forward_auth ${cfgTa.settings.SERVER_ADDRESS}:${toString cfgTa.settings.SERVER_PORT} {
         uri /api/auth/caddy
         copy_headers Authorization
@@ -60,7 +60,7 @@ services = {
     APPS_CALIBRE_CONFIG_DOMAIN = domain;
     APPS_CALIBRE_OAUTH_GROUPS = "readers";
     # subdomain with autologin just for me :3
-    APPS_MYCALIBRE_CONFIG_DOMAIN = "c.${domain}";
+    APPS_MYCALIBRE_CONFIG_DOMAIN = "c-${domain}";
     APPS_MYCALIBRE_OAUTH_WHITELIST = "clover@isons.org";
     APPS_MYCALIBRE_RESPONSE_BASICAUTH_USERNAME = "clover";
     APPS_MYCALIBRE_RESPONSE_BASICAUTH_PASSWORDFILE = config.sops.secrets."calibre-clover.password".path;
