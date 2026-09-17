@@ -1,4 +1,4 @@
-{ config, lib, ... }: let
+{ config, lib, pkgs, ... }: let
   cfg = config.www;
 in {
 
@@ -9,6 +9,7 @@ imports = [
   ./immich.nix
   ./cloverpad.nix
   ./auth
+  ./acme.nix
 ];
 
 options = {
@@ -45,6 +46,10 @@ config = {
 
     caddy = {
       enable = cfg.enable;
+      package = pkgs.caddy.withPlugins {
+        plugins = [ "github.com/caddy-dns/acmedns@v0.7.0" ];
+        hash = "sha256-VGP8ALO+eB6PqhUYyaxoyTllRMPD0C5hvR2Gr59Z0vY=";
+      };
       email = "clover+acme@isons.org";
       logFormat = ''
         level ERROR
