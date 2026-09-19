@@ -142,18 +142,18 @@
     },
     "nix-maid": {
       "locked": {
-        "lastModified": 1783804358,
-        "narHash": "sha256-SxgdtD4DBslk8u5MIzh4Hs/7vcuPHn4cD2h5I3Mufz4=",
-        "owner": "viperML",
-        "repo": "nix-maid",
-        "rev": "0e0feba21016c1285382e32ea894ace731f49d3b",
-        "type": "github"
+        "lastModified": 1788344127,
+        "narHash": "sha256-8fVrR6SZPp5Mol8KY6UwqeNAoWhqIWm/X/CbBZuTh70=",
+        "ref": "master",
+        "rev": "cdb2642fc53479be55013f0d7728cfabc01f0d19",
+        "revCount": 133,
+        "type": "git",
+        "url": "https://codeberg.org/viperML/nix-maid"
       },
       "original": {
-        "owner": "viperML",
         "ref": "master",
-        "repo": "nix-maid",
-        "type": "github"
+        "type": "git",
+        "url": "https://codeberg.org/viperML/nix-maid"
       }
     },
     "nixos-hardware": {
@@ -409,18 +409,18 @@
     },
     "wrapper-manager": {
       "locked": {
-        "lastModified": 1783493101,
-        "narHash": "sha256-LqqlRrZVLdCr/fmfXj/j7bUpvv02Ct3TVInWRxs20a8=",
-        "owner": "viperML",
-        "repo": "wrapper-manager",
-        "rev": "531d7752716f5097f05c709d6727299d70c69b62",
-        "type": "github"
+        "lastModified": 1788355120,
+        "narHash": "sha256-JEuM7FjlX48cpDhDrkeIch5nNYANux5o0wcw8vnwUuE=",
+        "ref": "master",
+        "rev": "5dbc685119c53a10c3f9a74b2716107413889796",
+        "revCount": 95,
+        "type": "git",
+        "url": "https://codeberg.org/viperML/wrapper-manager"
       },
       "original": {
-        "owner": "viperML",
         "ref": "master",
-        "repo": "wrapper-manager",
-        "type": "github"
+        "type": "git",
+        "url": "https://codeberg.org/viperML/wrapper-manager"
       }
     },
     "yip": {

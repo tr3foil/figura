@@ -15,7 +15,7 @@ inputs = {
     url = "github:nix-community/lanzaboote?ref=v1.1.0";
     inputs.nixpkgs.follows = "nixpkgs";
   };
-  nix-maid.url = "github:viperML/nix-maid?ref=master";
+  nix-maid.url = "git+https://codeberg.org/viperML/nix-maid?ref=master";
   nixos-hardware.url = "github:NixOS/nixos-hardware?ref=master";
   nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
   pinputs = {
@@ -28,7 +28,7 @@ inputs = {
     url = "github:Mic92/sops-nix?ref=master";
     inputs.nixpkgs.follows = "nixpkgs";
   };
-  wrapper-manager.url = "github:viperML/wrapper-manager?ref=master";
+  wrapper-manager.url = "git+https://codeberg.org/viperML/wrapper-manager?ref=master";
 };
 
 outputs = inputs: let
