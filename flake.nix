@@ -78,7 +78,7 @@ in {
     statix = pkgs.runCommand "statix-check"
       { nativeBuildInputs = [ pkgs.statix ]; }
       ''
-        statix check ${inputs.self}
+        statix check --config ${./statix.toml} ${inputs.self}
         touch $out
       '';
   });
