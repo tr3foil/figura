@@ -69,14 +69,18 @@ in {
   });
 
   checks = allSystems (pkgs: {
-    deadnix = pkgs.runCommand "deadnix-check" {} ''
-      ${pkgs.lib.getExe pkgs.deadnix} --fail ${inputs.self}
-      touch $out
-    '';
-    statix = pkgs.runCommand "statix-check" {} ''
-      ${pkgs.lib.getExe pkgs.statix} check ${inputs.self}
-      touch $out
-    '';
+    deadnix = pkgs.runCommand "deadnix-check"
+      { nativeBuildInputs = [ pkgs.deadnix ]; }
+      ''
+        deadnix --fail ${inputs.self}
+        touch $out
+      '';
+    statix = pkgs.runCommand "statix-check"
+      { nativeBuildInputs = [ pkgs.statix ]; }
+      ''
+        statix check ${inputs.self}
+        touch $out
+      '';
   });
 
 };
