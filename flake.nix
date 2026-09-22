@@ -72,13 +72,13 @@ in {
     deadnix = pkgs.runCommand "deadnix-check"
       { nativeBuildInputs = [ pkgs.deadnix ]; }
       ''
-        deadnix --fail ${inputs.self}
+        deadnix --fail ${./.}
         touch $out
       '';
     statix = pkgs.runCommand "statix-check"
       { nativeBuildInputs = [ pkgs.statix ]; }
       ''
-        statix check --config ${./statix.toml} ${inputs.self}
+        statix check --config ${./statix.toml} ${./.}
         touch $out
       '';
   });

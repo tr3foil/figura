@@ -4,7 +4,7 @@ nixpkgs.lib.nixosSystem {
   specialArgs = { inherit inputs; };
   modules = [
     ./mundus
-    "${self}/loci/${host}"
+    ./loci/${host}
     ./domus
     sops-nix.nixosModules.sops
     pinputs.nixosModules.default
