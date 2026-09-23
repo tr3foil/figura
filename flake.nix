@@ -18,10 +18,7 @@ inputs = {
   nix-maid.url = "git+https://codeberg.org/viperML/nix-maid?ref=master";
   nixos-hardware.url = "github:NixOS/nixos-hardware?ref=master";
   nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
-  pinputs = {
-    url = "github:tr3foil/pinputs?ref=main";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
+  pinputs.url = "github:tr3foil/pinputs?ref=main";
   phosphor.url = "github:tr3foil/phosphor?ref=main";
   cloverpad.url = "github:tr3foil/tr3foil.github.io?ref=main";
   sops-nix = {
