@@ -3,7 +3,7 @@ keys:
   - &alsafi age1x2e63nrdefg2mj6rurv8tfxupr6dgndh8wl6wtlg5tghx9gr2puqaj8tp7
   - &luna age1qxyfrujl9zxw5rzyjdexf3l3vyly3r648658qnt394fgnmw52u9sq3p7jl
   - &sol age1w8qq3n7ak37g3dnhqa7ltj7yerwps2y934xh9lnzk4eumdmyd5csw8nzj4
-  - &vega age1u2d4vzua87grq0rsrjp5zp3k8juxwmvtcghs60qgywcgaqyrgc9qq4jg0x
+  - &vega age1ejfqy6mp68tr9q4ed3xajk7z9fzvf476k32qg3qhzf25z4h99a3st5qgpc
 creation_rules:
   - path_regex: ^mundus/secrets\.yaml$
     key_groups:
