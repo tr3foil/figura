@@ -51,12 +51,33 @@ services = {
 
   };
 
+  immich-public-proxy = {
+    enable = cfg.enable;
+    port = 61505;
+    immichUrl = "http://${cfg.host}:${toString cfg.port}";
+    settings = {
+      # follow download rules set per share in immich
+      allowDownload = 1;
+      # show description in lightbox caption
+      showMetadata.description.caption = true;
+    };
+  };
+
   caddy.virtualHosts = {
     ${domain}.extraConfig = ''
-      forward_auth ${cfgTa.settings.SERVER_ADDRESS}:${toString cfgTa.settings.SERVER_PORT} {
-        uri /api/auth/caddy
+      # immich public proxy paths
+      @public path /share /share/* /s/*
+      handle @public {
+        reverse_proxy localhost:${toString config.services.immich-public-proxy.port}
       }
-      reverse_proxy ${cfg.host}:${toString cfg.port}
+
+      # everything else protected with tinyauth
+      handle {
+        forward_auth ${cfgTa.settings.SERVER_ADDRESS}:${toString cfgTa.settings.SERVER_PORT} {
+          uri /api/auth/caddy
+        }
+        reverse_proxy ${cfg.host}:${toString cfg.port}
+      }
     '';
 
     # subdomain for immich app with mtls instead of tinyauth middleware
