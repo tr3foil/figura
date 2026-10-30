@@ -10,7 +10,7 @@ sops.secrets."acme-dns.json" = {
 
 services = {
   acme-dns = {
-    enable = config.www.enable;
+    inherit (config.www) enable;
     settings = {
       general = {
         inherit domain;

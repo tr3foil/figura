@@ -12,7 +12,7 @@ sops.secrets."calibre-clover.password" = {
 
 services = {
   calibre-server = {
-    enable = config.www.enable;
+    inherit (config.www) enable;
     host = "localhost";
     port = 8391;
     openFirewall = false;

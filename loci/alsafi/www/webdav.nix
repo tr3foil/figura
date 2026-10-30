@@ -5,7 +5,7 @@ in {
 
 services = {
   webdav = {
-    enable = config.www.enable;
+    inherit (config.www) enable;
     environmentFile = config.sops.secrets."webdav.env".path;
     settings = {
       address = "localhost";

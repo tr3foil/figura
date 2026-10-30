@@ -12,7 +12,7 @@ sops.secrets."tinyauth.env" = {
 
 services = {
   tinyauth = {
-    enable = config.www.enable;
+    inherit (config.www) enable;
     environmentFile = config.sops.secrets."tinyauth.env".path;
     settings = rec {
       SERVER_ADDRESS = "localhost";

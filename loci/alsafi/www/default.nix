@@ -39,13 +39,13 @@ config = {
 
   services = {
     duckdns = {
-      enable = cfg.enable;
+      inherit (cfg) enable;
       tokenFile = config.sops.secrets."duckdns.token".path;
       domains = [ "cloverp" ];
     };
 
     caddy = {
-      enable = cfg.enable;
+      inherit (cfg) enable;
       package = pkgs.caddy.withPlugins {
         plugins = [ "github.com/caddy-dns/acmedns@v0.7.0" ];
         hash = "sha256-gPOoyci0lQsDInBQgyjlSw4/N3MQjO/zDjgcYYTl7IE=";

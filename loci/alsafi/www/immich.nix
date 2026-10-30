@@ -19,7 +19,7 @@ sops.secrets = {
 
 services = {
   immich = {
-    enable = config.www.enable;
+    inherit (config.www) enable;
     host = "localhost";
     openFirewall = false;
     settings = {
@@ -52,7 +52,7 @@ services = {
   };
 
   immich-public-proxy = {
-    enable = cfg.enable;
+    inherit (cfg) enable;
     port = 61505;
     immichUrl = "http://${cfg.host}:${toString cfg.port}";
     settings = {

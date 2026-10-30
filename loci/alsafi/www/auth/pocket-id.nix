@@ -10,7 +10,7 @@ sops.secrets."pocket-id_encryption.key" = {
 
 services = {
   pocket-id = {
-    enable = config.www.enable;
+    inherit (config.www) enable;
     settings = {
       HOST = "localhost";
       PORT = 5059;

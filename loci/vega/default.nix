@@ -42,8 +42,10 @@ boot = {
 };
 
 # This bitch is secured with fde, we can autologin
-users.mutableUsers = false;
-users.users.cison.initialHashedPassword = lib.mkForce null;
+users = {
+  mutableUsers = false;
+  users.cison.initialHashedPassword = lib.mkForce null;
+};
 services.greetd.settings = {
   initial_session = {
     command = "niri-session";
