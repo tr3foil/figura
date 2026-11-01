@@ -48,7 +48,7 @@ config = {
       enable = cfg.enable;
       package = pkgs.caddy.withPlugins {
         plugins = [ "github.com/caddy-dns/acmedns@v0.7.0" ];
-        hash = "sha256-VGP8ALO+eB6PqhUYyaxoyTllRMPD0C5hvR2Gr59Z0vY=";
+        hash = "sha256-gPOoyci0lQsDInBQgyjlSw4/N3MQjO/zDjgcYYTl7IE=";
       };
       email = "clover+acme@isons.org";
       logFormat = ''
