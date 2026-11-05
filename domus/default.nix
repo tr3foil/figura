@@ -41,6 +41,9 @@ config = {
       pkgs.nixd
       pkgs.gnupg
 
+      pkgs.age
+      pkgs.age-plugin-yubikey
+
       # Utilities
       pkgs.coreutils-full
       pkgs.psmisc
