@@ -49,7 +49,6 @@ config = lib.mkMerge [
 
       programs = {
         niri.enable = true;
-        kdeconnect.enable = true;
         steam = {
           enable = true;
           extraCompatPackages = [ pkgs.proton-ge-bin ];

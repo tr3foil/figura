@@ -42,15 +42,6 @@ programs = {
   bash.enable = true;
 };
 
-# Home Manager managed services
-services = {
-  # Connect to phone with kdeconnect app
-  kdeconnect = {
-    enable = true;
-    indicator = true;
-  };
-};
-
 # XDG user directories
 xdg = {
   enable = true;

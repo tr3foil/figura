@@ -21,6 +21,7 @@ imports = [
   ./desktop-pkgs.nix
   ./burp
   ./zap
+  ./kdeconnect
 ];
 
 options = {
